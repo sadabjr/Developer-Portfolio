@@ -1,0 +1,15 @@
+html, body {
+    overflow-x: hidden;
+  }
+  
+  .bg-primary {
+    background-color: #4F46E5;
+  }
+  
+  .bg-primary-dark {
+    background-color: #4338CA;
+  }
+  
+  .bg-background {
+    background-color: #1E1E2E;
+  }

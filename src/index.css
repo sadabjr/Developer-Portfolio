@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  :root {
+    --background: 222 18% 13%;
+    --foreground: 240 6% 97%;
+    --primary: 252 80% 74%;
+    --primary-dark: 264 24% 54%;
+    --accent: 270 89% 86%;
+    --card: rgba(255, 255, 255, 0.05);
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.1 76.2% 36.3%;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn {
+    @apply px-6 py-3 font-medium rounded-full transition-all duration-300;
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply bg-[#9b87f5] text-[#1A1F2C] shadow-md shadow-[#9b87f5]/30;
+  }
+
+  .btn-primary:hover {
+    @apply bg-[#7E69AB] scale-105 shadow-lg shadow-[#7E69AB]/40;
+  }
+
+  .btn-primary:active {
+    @apply bg-[#6B5A91] scale-95;
+  }
+
+  .btn-primary:focus {
+    @apply outline-none ring-2 ring-[#9b87f5]/50 ring-offset-2 ring-offset-[#1A1F2C];
+  }
+
+  /* Secondary Button (Bordered) */
+  .btn-secondary {
+    @apply border border-[#9b87f5] text-[#9b87f5] bg-transparent;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-[#9b87f5]/10 scale-105;
+  }
+
+  .btn-secondary:active {
+    @apply bg-[#9b87f5]/20 scale-95;
+  }
+
+  .btn-secondary:focus {
+    @apply outline-none ring-2 ring-[#9b87f5]/50 ring-offset-2 ring-offset-[#1A1F2C];
+  }
+}
+
+
+/* Utility styles */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary) / 0.5);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--primary));
+}
+
+/* Selection */
+::selection {
+  background-color: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.3s ease-out;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
